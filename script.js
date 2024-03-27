@@ -104,7 +104,7 @@ function renderCards(jobData, startIndex, count) {
         imageContainer.style.backgroundColor = job.logoBackground;
         imageContainer.classList.add('imageContainer');
         const logo = document.createElement('img');
-        logo.src = `public/assets/logos/${job.company}.svg`;
+        logo.src = job.logo;
         logo.alt = job.company;
         const content = document.createElement('div');
         content.classList.add('content');

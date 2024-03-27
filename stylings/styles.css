@@ -724,6 +724,9 @@ article .desc-wrapper ul {
   section {
     padding: 0.85rem;
   }
+  section #load-more-btn {
+    margin-bottom: 1rem;
+  }
   article {
     padding: 0.85rem;
   }
