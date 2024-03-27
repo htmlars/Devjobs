@@ -750,6 +750,13 @@ article {
 }
 
 @media (max-width: 628px) {
+    .return {
+        img {
+            padding: .5rem;
+            border-radius: .5rem;
+        }
+    }
+
     article {
         .desc-wrapper {
             .text-header {
