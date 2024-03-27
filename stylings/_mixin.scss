@@ -1,0 +1,20 @@
+@mixin flexCenter($dir, $content, $items)
+{
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $content;
+    align-items: $items;
+}
+
+@mixin search
+{
+    img {
+        margin-right: 1rem;
+    }
+
+    input {
+        background-color: transparent;
+        width: 100%;
+        border: none;
+    }
+}

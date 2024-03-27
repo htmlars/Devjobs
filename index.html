@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>devjobs</title>
+    <link rel="stylesheet" href="stylings/styles.css">
+</head>
+
+<body>
+    <main>
+        <nav>
+            <div class="top">
+                <button id="logo-btn"><img src="public/assets/logo.svg" alt="logo"></button>
+                <div class="theme">
+                    <img src="public/assets/icon-sun.svg" alt="sun">
+                    <div type="button" id="toggle-switch">
+                        <i id="indicator" class="indicator"></i>
+                    </div>
+                    <img src="public/assets/icon-moon.svg" alt="moon">
+                </div>
+            </div>
+            <form id="main-form">
+                <div class="title">
+                    <img src="public/assets/icon-search.svg" alt="magnifying glass">
+                    <input type="text" id="title-search" placeholder="Filter by companies..." spellcheck="false">
+                </div>
+                <div class="location">
+                    <img src="public/assets/icon-location.svg" alt="location">
+                    <input type="text" id="location-search" placeholder="Filter by location..." spellcheck="false">
+                </div>
+                <div class="full-time">
+                    <div class="inner">
+                        <input type="checkbox" id="time-search">
+                        <p>Full Time</p>
+                    </div>
+                    <button id="search-btn" type="button">Search</button>
+                </div>
+                <div class="mobile-btn">
+                    <button type="button" id="filter"><img src="./public/assets/phone/icon-filter.svg"
+                            alt="filter"></button>
+                    <button id="mb-btn" type="button"><img src="./public/assets/icon-search-dark.svg"
+                            alt="Magnifying Glass"></button>
+                </div>
+            </form>
+
+            <div id="filter-card" class="filter-card">
+                <div class="filter-top">
+                    <img src="public/assets/icon-location.svg" alt="location">
+                    <input type="text" id="location-filter" placeholder="Filter by location..." spellcheck="false">
+                </div>
+                <div class="filter-bottom">
+                    <input type="checkbox" id="time-filter">
+                    <p>Full Time</p>
+                </div>
+            </div>
+        </nav>
+        <section id="sec">
+            <div class="grid-container"></div>
+            <button id="load-more-btn">Load More</button>
+        </section>
+
+        <article></article>
+        <div class="apply" id="apply"></div>
+    </main>
+
+    <script src="styles.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

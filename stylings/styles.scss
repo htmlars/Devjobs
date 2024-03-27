@@ -1,0 +1,826 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+@import '_variables.scss';
+@import '_mixin.scss';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    all: unset;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.dark-mode main {
+    background-color: $clr-dark-background-body;
+}
+
+.dark-mode nav .top .theme {
+    #toggle-switch {
+        background: $clr-violet-light;
+
+        .indicator {
+            &:hover {
+                background-color: $clr-violet;
+            }
+        }
+    }
+}
+
+.dark-mode form {
+    background-color: $clr-dark-background-page-elements;
+    box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.05), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.1);
+
+    &:hover {
+        box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.1), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.15);
+    }
+
+    &::before,
+    &::after {
+        background-color: $clr-grey-dark;
+    }
+
+    input {
+        color: $clr-dark-text-heading;
+    }
+
+    .full-time {
+        p {
+            color: $clr-dark-text-heading;
+        }
+    }
+}
+
+.dark-mode section {
+    .job-card {
+        background-color: $clr-dark-background-page-elements;
+        color: $clr-dark-text-heading;
+        box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.05), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.1), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.15);
+        }
+    }
+}
+
+.dark-mode .filter-card {
+    background-color: $clr-dark-background-page-elements;
+    box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.05), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.1);
+
+    &:hover {
+        box-shadow: 0 0.063rem 0.188rem rgba(255, 255, 255, 0.1), 0 0.063rem 0.125rem rgba(255, 255, 255, 0.15);
+    }
+
+    .filter-top {
+
+        input {
+            color: $clr-dark-text-heading;
+        }
+    }
+
+    .filter-bottom {
+        p {
+            color: $clr-dark-text-heading;
+        }
+    }
+}
+
+.dark-mode article {
+    .top-info {
+        background-color: $clr-dark-background-page-elements;
+
+        .right-info {
+            h2 {
+                color: $clr-dark-text-heading;
+            }
+
+            button {
+                background-color: $clr-grey-dark;
+                color: $clr-dark-text-heading;
+            }
+        }
+    }
+
+    .desc-wrapper {
+        background-color: $clr-dark-background-page-elements;
+
+        .text-header {
+
+            .content-left {
+                .position {
+                    color: $clr-dark-text-heading;
+                }
+            }
+        }
+
+        h1 {
+            color: $clr-dark-text-heading;
+        }
+    }
+}
+
+.dark-mode .apply {
+    background-color: $clr-dark-background-page-elements;
+
+    .apply-div {
+
+        .apply-flex {
+
+            h1 {
+                color: $clr-dark-text-heading;
+            }
+        }
+    }
+}
+
+main {
+    min-height: 100vh;
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 1rem;
+    background-color: $clr-background-body;
+}
+
+nav {
+    padding: 1rem;
+    max-width: 1152px;
+    margin-inline: auto;
+
+    .top {
+        margin-top: 2rem;
+        @include flexCenter(row, space-between, center);
+
+        button {
+            cursor: pointer;
+        }
+
+        .theme {
+            @include flexCenter(row, space-between, center);
+
+            #toggle-switch {
+                margin-inline: 1rem;
+                position: relative;
+                display: block;
+                width: 3rem;
+                height: 1.5rem;
+                border-radius: 3rem;
+                background: $clr-violet-ultralight;
+                transition: 0.2s;
+                cursor: pointer;
+
+                .indicator {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    background: $clr-violet;
+                    border-radius: 50%;
+                    transform: scale(0.7);
+                    transition: 0.2s;
+
+                    &:hover {
+                        background-color: $clr-violet-light;
+                    }
+                }
+
+                &:active .indicator {
+                    left: 1.5rem;
+                }
+            }
+        }
+    }
+
+    form {
+        @include flexCenter(row, space-between, center);
+        position: relative;
+        margin-top: 3.25rem;
+        width: 100%;
+        background-color: $clr-background-page-elements;
+        border-radius: 1rem;
+        box-shadow: 0 0.063rem 0.188rem rgba(31, 50, 81, 0.12), 0 0.063rem 0.125rem rgba(31, 50, 81, 0.24);
+        transition: box-shadow .2s ease-in;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: $clr-grey-light;
+            box-sizing: border-box;
+        }
+
+        &::before {
+            left: 33.33%;
+        }
+
+        &::after {
+            left: 66.66%;
+        }
+
+        &:hover {
+            box-shadow: 0 0.375rem 0.75rem rgba(31, 50, 81, 0.15), 0 0.25rem 0.25rem rgba(31, 50, 81, 0.12);
+        }
+
+        input {
+            color: $clr-text-heading;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .title,
+        .location,
+        .full-time {
+            @include flexCenter(row, start, center);
+            padding: 1rem;
+        }
+
+        .title,
+        .location {
+            position: relative;
+            @include search();
+        }
+
+        .full-time {
+            gap: 1rem;
+
+            p {
+                color: $clr-text-heading;
+                margin-right: 1rem;
+            }
+
+            input[type="checkbox"] {
+                height: 1.25rem;
+                aspect-ratio: 1;
+                accent-color: $clr-violet;
+                cursor: pointer;
+                margin: 0;
+            }
+
+            .inner {
+                @include flexCenter(row, start, center);
+                gap: 1rem;
+            }
+
+            button {
+                padding: 1rem 2rem;
+                background-color: $clr-violet;
+                color: $clr-dark-text-heading;
+                font-weight: 600;
+                border-radius: .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $clr-violet-light;
+                }
+            }
+        }
+
+        .mobile-btn {
+            display: none;
+        }
+    }
+
+    .filter-card {
+        position: relative;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        position: relative;
+        gap: 1rem;
+        margin-top: 1rem;
+        background-color: #fff;
+        width: 100%;
+        margin-inline: auto;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 0.063rem 0.188rem rgba(31, 50, 81, 0.12), 0 0.063rem 0.125rem rgba(31, 50, 81, 0.24);
+        transition: box-shadow .2s ease-in;
+
+        &:hover {
+            box-shadow: 0 0.375rem 0.75rem rgba(31, 50, 81, 0.15), 0 0.25rem 0.25rem rgba(31, 50, 81, 0.12);
+        }
+
+        .filter-top {
+            @include flexCenter(row, center, center);
+            gap: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+
+            input {
+                width: 100%;
+                border: none;
+                background-color: transparent;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .filter-bottom {
+            @include flexCenter(row, center, center);
+            gap: 1rem;
+
+            input[type="checkbox"] {
+                height: 1.25rem;
+                aspect-ratio: 1;
+                accent-color: $clr-violet;
+                margin: 0;
+            }
+
+            p {
+                color: $clr-text-heading;
+            }
+        }
+    }
+}
+
+section {
+    margin-top: 2rem;
+    padding: 2rem 1rem;
+    max-width: 1152px;
+    margin-inline: auto;
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    button {
+        margin: 0 auto;
+        display: block;
+        padding: 1rem;
+        background-color: $clr-violet;
+        color: $clr-dark-text-heading;
+        font-weight: 600;
+        border-radius: .5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $clr-violet-light;
+        }
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.dark-mode input:-webkit-autofill,
+.dark-mode input:-webkit-autofill:hover,
+.dark-mode input:-webkit-autofill:focus,
+.dark-mode textarea:-webkit-autofill,
+.dark-mode textarea:-webkit-autofill:hover,
+.dark-mode textarea:-webkit-autofill:focus,
+.dark-mode select:-webkit-autofill,
+.dark-mode select:-webkit-autofill:hover,
+.dark-mode select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #19202D inset;
+    -webkit-text-fill-color: $clr-dark-text-heading;
+}
+
+
+
+.job-card {
+    position: relative;
+    background-color: #fff;
+    padding: 3rem 2rem 2rem 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-shadow: 0 0.063rem 0.188rem rgba(31, 50, 81, 0.12), 0 0.063rem 0.125rem rgba(31, 50, 81, 0.24);
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0.375rem 0.75rem rgba(31, 50, 81, 0.15), 0 0.25rem 0.25rem rgba(31, 50, 81, 0.12);
+    }
+
+    .content {
+        @include flexCenter(column, space-between, start);
+        gap: 1rem;
+
+        .info {
+            @include flexCenter(row, space-between, center);
+            gap: 1rem;
+            color: $clr-grey-medium;
+
+            span {
+                width: 5px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                background-color: $clr-grey-medium;
+            }
+        }
+
+        h1 {
+            font-size: 1.1rem;
+        }
+
+        .company {
+            color: $clr-grey-medium;
+        }
+    }
+
+    .location {
+        font-weight: 500;
+        color: $clr-violet;
+        margin-top: 2rem;
+    }
+
+    .imageContainer {
+        z-index: 2;
+        position: absolute;
+        top: -25px;
+        left: 10;
+        width: 3rem;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: .5rem;
+    }
+}
+
+article {
+    display: none;
+    padding: 1rem;
+    margin-top: 2.5rem;
+    max-width: 768px;
+    margin-inline: auto;
+
+    .top-info {
+        @include flexCenter(row, start, center);
+        background-color: #fff;
+        border-radius: .5rem;
+        overflow: hidden;
+        height: 140px;
+        box-shadow: 0 0.063rem 0.188rem rgba(31, 50, 81, 0.12), 0 0.063rem 0.125rem rgba(31, 50, 81, 0.24);
+
+        .logo-container {
+            @include flexCenter(row, center, center);
+            height: 100%;
+            width: 11rem;
+
+            img {
+                width: 60%;
+                height: auto;
+            }
+        }
+
+        .right-info {
+            width: 100%;
+            @include flexCenter(row, space-between, center);
+            padding: 2rem;
+
+            .comp-info {
+
+                p {
+                    color: $clr-grey-medium;
+                    margin-top: .5rem;
+                }
+            }
+
+            button {
+                padding: 1rem;
+                background-color: $clr-violet-ultralight;
+                color: $clr-violet;
+                font-weight: 600;
+                border-radius: .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $clr-violet-light;
+                }
+            }
+        }
+    }
+
+    .desc-wrapper {
+        @include flexCenter(column, start, start);
+        gap: 2rem;
+        margin-top: 1.5rem;
+        background-color: #fff;
+        border-radius: .5rem;
+        overflow: hidden;
+        padding: 2rem;
+        box-shadow: 0 0.063rem 0.188rem rgba(31, 50, 81, 0.12), 0 0.063rem 0.125rem rgba(31, 50, 81, 0.24);
+
+        .text-header {
+            @include flexCenter(row, space-between, center);
+            width: 100%;
+
+            .content-left {
+                @include flexCenter(column, start, start);
+                gap: .5rem;
+
+                .clock {
+                    @include flexCenter(row, start, center);
+                    gap: 1rem;
+                    color: $clr-grey-medium;
+
+                    span {
+                        width: 5px;
+                        aspect-ratio: 1;
+                        border-radius: 50%;
+                        background-color: $clr-grey-medium;
+                    }
+                }
+
+                .position {
+                    color: #000;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+
+                .desc-location {
+                    color: $clr-violet;
+                }
+            }
+
+            button {
+                padding: 1rem;
+                background-color: $clr-violet;
+                color: $clr-dark-text-heading;
+                font-weight: 600;
+                border-radius: .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $clr-violet-light;
+                }
+            }
+        }
+
+        p {
+            color: $clr-grey-medium;
+            line-height: 2rem;
+        }
+
+        ul {
+            color: $clr-grey-medium;
+            padding-left: 1rem;
+            line-height: 2rem;
+        }
+    }
+}
+
+.apply {
+    display: none;
+    background-color: #fff;
+    margin-top: 2rem;
+    padding: .5rem 0;
+
+    .apply-div {
+        padding: 2rem 0;
+        max-width: 768px;
+        margin-inline: auto;
+        padding: 1rem;
+        @include flexCenter(row, space-between, center);
+
+        .apply-flex {
+            @include flexCenter(column, start, start);
+            gap: .5rem;
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                color: $clr-grey-medium;
+            }
+        }
+
+        button {
+            padding: 1rem;
+            background-color: $clr-violet;
+            color: $clr-dark-text-heading;
+            font-weight: 600;
+            border-radius: .5rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $clr-violet-light;
+            }
+        }
+    }
+}
+
+@media (max-width: 968px) {
+    main nav form {
+        @include flexCenter(row, space-between, center);
+        padding: 1rem;
+
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        .title {
+            padding: 0;
+        }
+
+        .location,
+        .full-time {
+            display: none;
+        }
+
+        .mobile-btn {
+            @include flexCenter(row, start, center);
+            gap: 1rem;
+
+            #filter {
+                display: block;
+                width: max-content;
+                margin-right: .5rem;
+            }
+
+            #mb-btn {
+                padding: 1rem;
+                background-color: $clr-violet;
+                color: $clr-dark-text-heading;
+                font-weight: 600;
+                border-radius: .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $clr-violet-light;
+                }
+            }
+        }
+    }
+
+    main nav form .location {
+        display: none;
+    }
+
+    main nav form .full-time {
+        .inner {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 628px) {
+    article {
+        .desc-wrapper {
+            .text-header {
+                @include flexCenter(column, space-between, start);
+
+                button {
+                    display: grid;
+                    place-items: center;
+                    width: 100%;
+                    margin-top: 2rem;
+                    box-sizing: border-box;
+                }
+            }
+        }
+    }
+
+    .apply {
+        .apply-div {
+            @include flexCenter(column, start, start);
+            gap: 1rem;
+
+            button {
+                box-sizing: border-box;
+                display: grid;
+                place-items: center;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    nav {
+        padding: .85rem;
+    }
+
+    main nav form {
+        .title {
+            padding: 0;
+            width: 13rem;
+        }
+
+        .mobile-btn {
+            #filter {
+                margin-right: 0;
+            }
+        }
+
+    }
+
+    section {
+        padding: .85rem;
+    }
+
+    article {
+        padding: .85rem;
+
+        .top-info {
+            position: relative;
+            @include flexCenter(column, center, space-between);
+            overflow: visible;
+            height: fit-content;
+
+            .right-info {
+                @include flexCenter(column, start, center);
+                margin-top: 1rem;
+                gap: 1rem;
+
+                button {
+                    box-sizing: border-box;
+                    display: grid;
+                    place-items: center;
+                    width: 100%;
+                }
+            }
+
+            .logo-container {
+                z-index: 2;
+                position: absolute;
+                top: -25px;
+                left: 10;
+                width: 3rem;
+                height: auto;
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: .5rem;
+            }
+        }
+    }
+}
+
+/* 
+
+*/
