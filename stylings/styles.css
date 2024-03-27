@@ -450,11 +450,30 @@ select:-webkit-autofill:focus {
   border-radius: 0.5rem;
 }
 
-article {
+.return {
   display: none;
-  padding: 1rem;
+  max-width: 768px;
   margin-top: 2.5rem;
   max-width: 768px;
+  margin-inline: auto;
+  padding: 0 1rem;
+  justify-content: flex-end;
+}
+.return img {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #5964e0;
+  transition: background-color 0.2s ease-in;
+  cursor: pointer;
+}
+.return img:hover {
+  background-color: #939bf4;
+}
+
+article {
+  display: none;
+  max-width: 768px;
+  padding: 1rem;
   margin-inline: auto;
 }
 article .top-info {

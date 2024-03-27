@@ -104,7 +104,7 @@ function renderCards(jobData, startIndex, count) {
         imageContainer.style.backgroundColor = job.logoBackground;
         imageContainer.classList.add('imageContainer');
         const logo = document.createElement('img');
-        logo.src = `./public/assets/logos/${job.company}.svg`;
+        logo.src = `public/assets/logos/${job.company}.svg`;
         logo.alt = job.company;
         const content = document.createElement('div');
         content.classList.add('content');
@@ -158,8 +158,30 @@ const sec = document.getElementById("sec");
 const compdiv = document.querySelector("article");
 const applydiv = document.getElementById("apply");
 
+const titleSearch = document.getElementById("title-search");
+const locationSearch = document.getElementById("location-search");
+const locationFilter = document.getElementById("location-filter");
+const timeSearch = document.getElementById("time-search");
+const timeFilter = document.getElementById("time-filter");
+
+const returndiv = document.getElementById("return");
+
 const logoBtn = document.getElementById("logo-btn");
 logoBtn.addEventListener("click", function () {
+    form.style.display = window.innerWidth = 'flex';
+    filter.style.display = 'none';
+    sec.style.display = 'block';
+    clearCompanyInfo();
+    titleSearch.value = '';
+    locationSearch.value = '';
+    locationFilter.value = '';
+    timeSearch.checked = false;
+    timeFilter.checked = false;
+    filterJobs();
+});
+
+const returnBtn = document.getElementById("return-btn");
+returnBtn.addEventListener("click", function () {
     form.style.display = window.innerWidth = 'flex';
     filter.style.display = 'none';
     sec.style.display = 'block';
@@ -171,14 +193,21 @@ function clearCompanyInfo() {
     applydiv.innerHTML = '';
     compdiv.style.display = 'none';
     applydiv.style.display = 'none';
+    returndiv.style.display = 'none';
 }
 
 function renderDesc(job) {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
     form.style.display = 'none';
     filter.style.display = 'none';
     sec.style.display = 'none';
     compdiv.style.display = 'block';
     applydiv.style.display = 'block';
+    returndiv.style.display = 'flex';
 
     const companyInfo = document.querySelector("article");
     companyInfo.innerHTML = '';
@@ -301,6 +330,11 @@ function renderDesc(job) {
 }
 
 function filterJobs() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
     const titleFilter = document.getElementById("title-search").value.toLowerCase();
     const locationFilter = document.getElementById("location-search").value.toLowerCase();
     const timeFilter = document.getElementById("time-search").checked;

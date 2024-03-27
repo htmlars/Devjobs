@@ -508,11 +508,33 @@ select:-webkit-autofill:focus {
     }
 }
 
-article {
+.return {
     display: none;
-    padding: 1rem;
+    max-width: 768px;
     margin-top: 2.5rem;
     max-width: 768px;
+    margin-inline: auto;
+    padding: 0 1rem;
+    justify-content: flex-end;
+
+    img {
+        padding: 1rem;
+        border-radius: .5rem;
+        background-color: $clr-violet;
+        transition: background-color .2s ease-in;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $clr-violet-light;
+        }
+    }
+}
+
+article {
+    display: none;
+    max-width: 768px;
+    padding: 1rem;
+
     margin-inline: auto;
 
     .top-info {
