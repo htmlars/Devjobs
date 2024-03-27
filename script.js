@@ -218,7 +218,7 @@ function renderDesc(job) {
     logoContainer.style.backgroundColor = job.logoBackground;
     logoContainer.classList.add('logo-container');
     const compLogo = document.createElement('img');
-    compLogo.src = `./public/assets/logos/${job.company}.svg`;
+    compLogo.src = job.logo;
     compLogo.alt = job.company;
     const rightInfo = document.createElement('div');
     rightInfo.classList.add('right-info');
